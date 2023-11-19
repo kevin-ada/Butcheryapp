@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "514620578304",
+    "project_id": "stocktake-dms",
+    "storage_bucket": "stocktake-dms.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514620578304:android:f2dab8e0db3c22b35256e5",
+        "android_client_info": {
+          "package_name": "com.example.stocktake_dms"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPgzoBN7n7xybGW5qMQ3Tq86WfK6toKfs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
