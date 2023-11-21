@@ -136,7 +136,7 @@
 
 
     <EditText
-        android:id="@+id/editquantity"
+        android:id="@+id/editstock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/editprice"
@@ -157,7 +157,7 @@
         android:id="@+id/additembuttontodatabase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editquantity"
+        android:layout_alignBottom="@+id/editstock"
         android:layout_centerHorizontal="true"
 
         android:layout_marginBottom="-70dp"
