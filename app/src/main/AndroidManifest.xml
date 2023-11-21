@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Stocktakedms"
         tools:targetApi="31">
         <activity
+            android:name=".viewStockActivity"
+            android:exported="false" />
+        <activity
             android:name=".deleteItemsActivity"
             android:exported="false" />
         <activity
