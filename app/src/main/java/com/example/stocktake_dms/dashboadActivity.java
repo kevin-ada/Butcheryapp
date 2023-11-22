@@ -38,12 +38,13 @@ public class dashboadActivity extends AppCompatActivity {
         String result = finaluser.substring(0,finaluser.indexOf("@"));
         String resultemail = result.replace(".", "");
         firebasenameview.setTextColor(Color.parseColor("#80A5D9"));
-        firebasenameview.setText("Welcome " +resultemail);
+        firebasenameview.setText("Welcome " + resultemail);
 
 
 
         // Finding the CardView for the "Add New Item" button
         View cardView = findViewById(R.id.addItems);
+        View cardView2 = findViewById(R.id.viewInventory);
 
         // Setting an onClickListener for the CardView
 
@@ -52,6 +53,14 @@ public class dashboadActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // GO to the add Item
                 startActivity(new Intent(dashboadActivity.this, additemActivity.class));
+            }
+        });
+
+        cardView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // GO to the add Item
+                startActivity(new Intent(dashboadActivity.this, viewStockActivity.class));
             }
         });
 
