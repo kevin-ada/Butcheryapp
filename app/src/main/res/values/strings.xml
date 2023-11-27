@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Stocktake-dms</string>
+    <string name="quantity">Quantity</string>
 </resources>

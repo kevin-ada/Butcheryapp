@@ -41,7 +41,7 @@
         tools:layout_editor_absoluteY="224dp" />
 
     <EditText
-        android:id="@+id/edititemname"
+        android:id="@+id/stocknameuid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView"
@@ -56,10 +56,10 @@
         tools:layout_editor_absoluteY="211dp" />
 
     <EditText
-        android:id="@+id/editcategory"
+        android:id="@+id/stockcategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/edititemname"
+        android:layout_alignBottom="@+id/stocknameuid"
         android:layout_centerHorizontal="true"
         android:textColorHint="#ffff"
         android:textColor="#ffff"
@@ -104,10 +104,10 @@
         tools:layout_editor_absoluteX="38dp"
         tools:layout_editor_absoluteY="287dp" />
     <EditText
-        android:id="@+id/editprice"
+        android:id="@+id/stockprice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editcategory"
+        android:layout_alignBottom="@+id/stockcategory"
         android:layout_centerHorizontal="true"
         android:textColorHint="#ffff"
         android:layout_marginBottom="-70dp"
@@ -126,7 +126,7 @@
         android:layout_marginStart="6dp"
 
         android:layout_marginBottom="-70dp"
-        android:text="Quantity"
+        android:text="quantity"
         android:textColor="#C1F8B0B0"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -136,10 +136,10 @@
 
 
     <EditText
-        android:id="@+id/editstock"
+        android:id="@+id/stockqnty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editprice"
+        android:layout_alignBottom="@+id/stockprice"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="108dp"
         android:layout_marginBottom="-70dp"
@@ -151,36 +151,14 @@
         tools:layout_editor_absoluteX="110dp"
         tools:layout_editor_absoluteY="211dp" />
 
-
-
     <Button
         android:id="@+id/additembuttontodatabase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editstock"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-70dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Add Item"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="211dp" />
-
-    <Button
-        android:id="@+id/view_item"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/additembuttontodatabase"
-        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="122dp"
-        android:layout_marginEnd="126dp"
-        android:layout_marginBottom="-75dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="View Items"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="211dp" />
-
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="159dp"
+        android:layout_marginBottom="135dp"
+        android:text="Add Item" />
 
 </RelativeLayout>

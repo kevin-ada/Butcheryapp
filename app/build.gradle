@@ -18,6 +18,10 @@ android {
         signingConfig signingConfigs.debug
     }
 
+    viewBinding {
+        enabled = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
