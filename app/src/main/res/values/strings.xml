@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Stocktake-dms</string>
     <string name="quantity">Quantity</string>
+    <string name="adding_stock_details">Adding Stock Details</string>
+    <string name="category">Category</string>
+    <string name="date">Date</string>
+    <string name="name">Name</string>
+    <string name="total_stock">Total Stock</string>
+    <string name="waste_stock">Waste Stock</string>
+    <string name="actual_stock">Actual Stock</string>
+    <string name="total_price">Total Price</string>
+    <string name="add">Add</string>
+    <string name="_0_00_kg">0.00 kg</string>
+    <string name="_0_00_kgs">0.00 kg</string>
+    <string name="_0_00_kgss">0.00 kg</string>
+    <string name="ksh_0_001">ksh. 0.00</string>
 </resources>

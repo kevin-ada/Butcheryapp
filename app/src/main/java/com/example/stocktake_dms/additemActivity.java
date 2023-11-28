@@ -38,7 +38,7 @@ public class additemActivity extends AppCompatActivity {
         binding.additembuttontodatabase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                itemName = binding.stocknameuid.getText().toString();
+                //itemName = binding.stocknameuid.getText().toString();
                 itemCategory = binding.stockcategory.getText().toString();
                 itemPrice = binding.stockprice.getText().toString();
                 itemQuantity = binding.stockqnty.getText().toString();
@@ -55,7 +55,7 @@ public class additemActivity extends AppCompatActivity {
                     databaseStock.child(itemName).setValue(stock).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            binding.stocknameuid.setText("");
+                           // binding.stocknameuid.setText("");
                             binding.stockcategory.setText("");
                             binding.stockprice.setText("");
                             binding.stockqnty.setText("");
