@@ -1,37 +1,58 @@
 package com.example.stocktake_dms;
 
-import com.google.firebase.database.IgnoreExtraProperties;
-
-@IgnoreExtraProperties
 public class Stock {
-    private String itemname;
-    private String itemcategory;
-    private String itemprice;
-    private String itemquantity;
+
+    String Date, Category, WasteStock, actualStock, totalPrice;
 
     public Stock() {
+
     }
 
-    public Stock(String itemname, String itemcategory, String itemprice, String itemquantity) {
-        this.itemname = itemname;
-        this.itemcategory = itemcategory;
-        this.itemprice = itemprice;
-        this.itemquantity = itemquantity;
+    public Stock(String date, String category, String wasteStock, String actualStock, String totalPrice) {
+        Date = date;
+        Category = category;
+        WasteStock = wasteStock;
+        this.actualStock = actualStock;
+        this.totalPrice = totalPrice;
     }
 
-    public String getItemname() {
-        return itemname;
+    public String getDate() {
+        return Date;
     }
 
-    public String getItemcategory() {
-        return itemcategory;
+    public void setDate(String date) {
+        Date = date;
     }
 
-    public String getItemprice() {
-        return itemprice;
+    public String getCategory() {
+        return Category;
     }
 
-    public String getItemquantity() {
-        return itemquantity;
+    public void setCategory(String category) {
+        Category = category;
+    }
+
+    public String getWasteStock() {
+        return WasteStock;
+    }
+
+    public void setWasteStock(String wasteStock) {
+        WasteStock = wasteStock;
+    }
+
+    public String getActualStock() {
+        return actualStock;
+    }
+
+    public void setActualStock(String actualStock) {
+        this.actualStock = actualStock;
+    }
+
+    public String getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(String totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

@@ -17,17 +17,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class additemActivity extends AppCompatActivity {
 
-    /// Bind Views
-
-    String itemName;
-    String itemCategory;
-    String itemPrice;
-    String itemQuantity;
-    DatabaseReference databaseStock;
-    Button addBtnItem, ViewBtnItem;
     ActivityAdditemBinding binding;
-    FirebaseDatabase db;
 
+    String Date, Category, WasteStock, actualStock, totalPrice;
+
+    DatabaseReference reference;
+
+    FirebaseDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,40 +31,42 @@ public class additemActivity extends AppCompatActivity {
         binding = ActivityAdditemBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.additembuttontodatabase.setOnClickListener(new View.OnClickListener() {
+        binding.addStockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //itemName = binding.stocknameuid.getText().toString();
-                itemCategory = binding.stockcategory.getText().toString();
-                itemPrice = binding.stockprice.getText().toString();
-                itemQuantity = binding.stockqnty.getText().toString();
+                Date = binding.date.getText().toString();
+                Category = binding.category.getText().toString();
+                WasteStock = binding.wastestock.getText().toString();
+                actualStock = binding.actualStock.getText().toString();
 
-                if (itemName.isEmpty() && itemCategory.isEmpty() && itemPrice.isEmpty() && itemQuantity.isEmpty()) {
-                    binding.stockqnty.setError("Please enter all fields");
-                    binding.stockprice.setError("Please enter all fields");
-                    binding.stocknameuid.setError("Please enter all fields");
-                    binding.stockcategory.setError("Please enter all fields");
-                } else {
-                    Stock stock = new Stock(itemName, itemCategory, itemPrice, itemQuantity);
-                    db = FirebaseDatabase.getInstance();
-                    databaseStock = db.getReference("Stock");
-                    databaseStock.child(itemName).setValue(stock).addOnCompleteListener(new OnCompleteListener<Void>() {
+                if (!Date.isEmpty() &&!Category.isEmpty() && !WasteStock.isEmpty() && !actualStock.isEmpty()) {
+                    Stock stock = new Stock(Date, Category, WasteStock, actualStock, totalPrice);
+                    db= FirebaseDatabase.getInstance();
+                    reference = db.getReference("Stock");
+                    reference.child(Date).setValue(stock).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                           // binding.stocknameuid.setText("");
-                            binding.stockcategory.setText("");
-                            binding.stockprice.setText("");
-                            binding.stockqnty.setText("");
-                            Toast.makeText(additemActivity.this, "Stock has been Successfully Stored", Toast.LENGTH_SHORT).show();
+                            binding.date.setText("");
+                            binding.category.setText("");
+                            binding.wastestock.setText("");
+                            binding.actualStock.setText("");
+                            binding.price.setText("");
+                            Toast.makeText(additemActivity.this, "Stock Added Successfully", Toast.LENGTH_SHORT).show();
                         }
                     });
+                } else {
+                    binding.date.setError("Please enter date");
+                    binding.category.setError("Please enter category");
+                    binding.wastestock.setError("Please enter waste stock");
+                    binding.actualStock.setError("Please enter actual stock");
+                    binding .price.setError("Please enter price");
+                    Toast.makeText(additemActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
 
-
-
-
     }
+
 
 }

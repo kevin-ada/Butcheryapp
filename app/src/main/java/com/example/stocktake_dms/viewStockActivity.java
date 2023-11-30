@@ -19,36 +19,33 @@ import java.util.ArrayList;
 public class viewStockActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<Stock> list;
-    DatabaseReference databaseReference;
-    MyAdapter myAdapter;
+    DatabaseReference db;
+    myAdapter myAdapter;
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         startActivity(new Intent(viewStockActivity.this, dashboadActivity.class));
         finish();
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_stock);
 
         recyclerView = findViewById(R.id.recyclerView);
-        databaseReference = FirebaseDatabase.getInstance().getReference("Stock");
-        list = new ArrayList<>();
+        db = FirebaseDatabase.getInstance().getReference("Stock");
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        myAdapter = new MyAdapter(this,list);
+
+        list = new ArrayList<>();
+        myAdapter = new myAdapter(this, list);
         recyclerView.setAdapter(myAdapter);
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Stock stock = dataSnapshot.getValue(Stock.class);
                     list.add(stock);
                 }
-                myAdapter.notifyDataSetChanged(); //refreshes the recycler view
+                myAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -57,6 +54,13 @@ public class viewStockActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_view_stock);
 
 
 

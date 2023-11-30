@@ -27,47 +27,41 @@ public class updatedata extends AppCompatActivity {
         binding = ActivityUpdatedataBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.updateBtn.setOnClickListener(new View.OnClickListener() {
+        Stock stock = (Stock)getIntent().getSerializableExtra("Stock");
+
+        if (stock != null){
+            binding.date.setText(stock.getDate());
+            binding.price.setText(stock.getTotalPrice());
+            binding.category.setText(stock.getCategory());
+            binding.wastestock.setText(stock.getWasteStock());
+        }
+
+        binding.addStockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String ItemName = binding.stocknametobeupdated.getText().toString();
-                String ItemQuantity = binding.stockquantity.getText().toString();
-                String ItemPrice = binding.StockPrice.getText().toString();
-                String Category = binding.StockCategory.getText().toString();
-                String StockName = binding.StockUpdateName.getText().toString();
+                String date = binding.date.getText().toString();
+                String category = binding.category.getText().toString();
+                String wastestock = binding.wastestock.getText().toString();
+                String actualstock = binding.actualStock.getText().toString();
+                String price = binding.price.getText().toString();
 
-                UpdateData(ItemName,ItemQuantity,ItemPrice,Category, StockName);
+                HashMap<String, Object> map = new HashMap<>();
+                map.put("date", date);
+                map.put("category", category);
+                map.put("wasteStock", wastestock);
+                map.put("actualStock", actualstock);
+                map.put("totalPrice", price);
 
+                reference = FirebaseDatabase.getInstance().getReference().child("Stock");
+                reference.child(date).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(updatedata.this, "Data Updated", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                });
             }
         });
     }
 
-    private void UpdateData(String itemName, String itemQuantity, String itemPrice, String category, String stockName) {
-        HashMap<String, Object> Stock = new HashMap<>();
-        Stock.put("ItemName",itemName);
-        Stock.put("StockName",stockName);
-        Stock.put("ItemQuantity",itemQuantity);
-        Stock.put("ItemPrice",itemPrice);
-        Stock.put("Category",category);
-
-
-        reference = FirebaseDatabase.getInstance().getReference("Stock"); //database reference
-        reference.child(itemName).updateChildren(Stock).addOnCompleteListener(new OnCompleteListener() {
-            @Override
-            public void onComplete(@NonNull Task task) {
-
-                if (task.isSuccessful()){
-                    binding.StockUpdateName.setText("");
-                    binding.StockCategory.setText("");
-                    binding.StockPrice.setText("");
-                    binding.stocknametobeupdated.setText("");
-                    binding.stockquantity.setText("");
-                    Toast.makeText(updatedata.this, "Stock has been Updated Successfully", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(updatedata.this, "Failed to Update Data", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
 }
