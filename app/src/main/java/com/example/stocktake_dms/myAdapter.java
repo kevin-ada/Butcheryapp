@@ -1,5 +1,6 @@
 package com.example.stocktake_dms;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -38,7 +39,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull myViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Stock stock = stockArrayList.get(position);
         holder.date.setText(stock.getDate());
         holder.category.setText(stock.getCategory());
@@ -85,6 +86,8 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder> {
                 // Displaying the popup
                 popup.show();
             }
+
+
         });
 
 
