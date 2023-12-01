@@ -51,10 +51,11 @@ public class additemActivity extends AppCompatActivity {
         binding.addStockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Date = binding.date.getText().toString();
                 Category = binding.category.getText().toString();
                 WasteStock = binding.wastestock.getText().toString();
                 actualStock = binding.actualStock.getText().toString();
+                totalPrice = binding.price.getText().toString();
+                Date = formattedDate;
 
                 if (!Category.isEmpty() && !WasteStock.isEmpty() && !actualStock.isEmpty()) {
                     Stock stock = new Stock(Date, Category, WasteStock, actualStock, totalPrice);
@@ -79,7 +80,7 @@ public class additemActivity extends AppCompatActivity {
                     binding.category.setError("Please enter category");
                     binding.wastestock.setError("Please enter waste stock");
                     binding.actualStock.setError("Please enter actual stock");
-                    binding .price.setError("Please enter price");
+                    binding.price.setError("Please enter price");
                     Toast.makeText(additemActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 }
 
