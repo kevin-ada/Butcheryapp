@@ -59,6 +59,7 @@
             android:id="@+id/wastestock"
             android:layout_width="360dp"
             android:layout_height="50dp"
+            android:inputType="numberDecimal"
             android:layout_marginTop="32dp"
             android:hint="Waste Stock"
             android:textColor="@color/black"
@@ -73,6 +74,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
             android:hint="Actual Stock"
+            android:inputType="numberDecimal"
             android:textColor="@color/black"
             android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,6 +89,7 @@
             android:hint="Total Price"
             android:textColor="@color/black"
             android:paddingLeft="20dp"
+            android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/actualStock" />
