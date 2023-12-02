@@ -57,6 +57,11 @@ public class dashboadActivity extends AppCompatActivity {
                 startActivity(new Intent(dashboadActivity.this, additemActivity.class));
             }
         });
+
+
+
+
+
     }
 
     //logout

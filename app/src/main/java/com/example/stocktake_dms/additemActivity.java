@@ -22,7 +22,7 @@ public class additemActivity extends AppCompatActivity {
 
     ActivityAdditemBinding binding;
 
-    String Date, Category, WasteStock, actualStock, totalPrice;
+    String Date, TotalStock, WasteStock, actualStock, totalPrice;
 
     DatabaseReference reference;
 
@@ -51,14 +51,14 @@ public class additemActivity extends AppCompatActivity {
         binding.addStockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Category = binding.category.getText().toString();
+                TotalStock = binding.TotalStock.getText().toString();
                 WasteStock = binding.wastestock.getText().toString();
                 actualStock = binding.actualStock.getText().toString();
                 totalPrice = binding.price.getText().toString();
                 Date = formattedDate;
 
-                if (!Category.isEmpty() && !WasteStock.isEmpty() && !actualStock.isEmpty()) {
-                    Stock stock = new Stock(Date, Category, WasteStock, actualStock, totalPrice);
+                if (!TotalStock.isEmpty() && !WasteStock.isEmpty() && !actualStock.isEmpty()) {
+                    Stock stock = new Stock(Date, TotalStock, WasteStock, actualStock, totalPrice);
 
 
 
@@ -68,7 +68,7 @@ public class additemActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             binding.date.setText("");
-                            binding.category.setText("");
+                            binding.TotalStock.setText("");
                             binding.wastestock.setText("");
                             binding.actualStock.setText("");
                             binding.price.setText("");
@@ -77,7 +77,7 @@ public class additemActivity extends AppCompatActivity {
                     });
                 } else {
                     //binding.date.setError("Please enter date");
-                    binding.category.setError("Please enter category");
+                    binding.TotalStock.setError("Please enter category");
                     binding.wastestock.setError("Please enter waste stock");
                     binding.actualStock.setError("Please enter actual stock");
                     binding.price.setError("Please enter price");
