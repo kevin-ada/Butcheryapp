@@ -58,32 +58,6 @@ public class dashboadActivity extends AppCompatActivity {
             }
         });
 
-        cardView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // GO to the add Item
-                startActivity(new Intent(dashboadActivity.this, viewStockActivity.class));
-            }
-        });
-
-        cardView3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // GO to the Delete item
-                startActivity(new Intent(dashboadActivity.this, deleteActivity.class));
-            }
-        });
-
-        cardView4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // GO to the Update item
-                startActivity(new Intent(dashboadActivity.this, updatedata.class));
-            }
-        });
-
-
-
     }
 
     //logout
