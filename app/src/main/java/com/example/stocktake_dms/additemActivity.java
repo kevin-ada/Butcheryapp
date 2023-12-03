@@ -59,7 +59,8 @@ public class additemActivity extends AppCompatActivity {
                 actualStock = Double.parseDouble(binding.actualStock.getText().toString());
                 totalPrice = Double.parseDouble(binding.price.getText().toString());
                 Date = formattedDate;
-
+                /// Calculate actual stock
+                /// Calculate total price
                 actualStock = TotalStock - WasteStock;
                 totalPrice = actualStock * Double.parseDouble(binding.price.getText().toString());
 
