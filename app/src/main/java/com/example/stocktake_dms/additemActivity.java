@@ -84,7 +84,7 @@ public class additemActivity extends AppCompatActivity {
                     });
                 } else {
                     //binding.date.setError("Please enter date");
-                    binding.TotalStock.setError("Please enter category");
+                    binding.TotalStock.setError("Please enter Total Stock");
                     binding.wastestock.setError("Please enter waste stock");
                     binding.actualStock.setError("Please enter actual stock");
                     binding.price.setError("Please enter price");

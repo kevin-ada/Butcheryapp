@@ -36,10 +36,11 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder> {
 
         Stock stock = stockArrayList.get(position);
         holder.date.setText(stock.getDate());
-        holder.category.setText(stock.getCategory());
-        holder.wasteStock.setText(stock.getWasteStock());
-        holder.actualStock.setText(stock.getActualStock());
-        holder.totalPrice.setText(stock.getTotalPrice());
+        //holder.totalstock.setText((int) stock.getCategory());
+
+        holder.wasteStock.setText((int) stock.getWasteStock());
+        holder.actualStock.setText((int) stock.getActualStock());
+        holder.totalPrice.setText((int) stock.getTotalPrice());
 
     }
 
