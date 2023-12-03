@@ -2,13 +2,16 @@ package com.example.stocktake_dms;
 
 public class Stock {
 
-    String Date, Category, WasteStock, actualStock, totalPrice;
+    String Date;
+    double Category;
+    double WasteStock;
+    double actualStock;
+    double totalPrice;
 
     public Stock() {
-
     }
 
-    public Stock(String date, String category, String wasteStock, String actualStock, String totalPrice) {
+    public Stock(String date, double category, double wasteStock, double actualStock, double totalPrice) {
         Date = date;
         Category = category;
         WasteStock = wasteStock;
@@ -24,35 +27,37 @@ public class Stock {
         Date = date;
     }
 
-    public String getCategory() {
+    public double getCategory() {
         return Category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(double category) {
         Category = category;
     }
 
-    public String getWasteStock() {
+    public double getWasteStock() {
         return WasteStock;
     }
 
-    public void setWasteStock(String wasteStock) {
+    public void setWasteStock(double wasteStock) {
         WasteStock = wasteStock;
     }
 
-    public String getActualStock() {
+    public double getActualStock() {
         return actualStock;
     }
 
-    public void setActualStock(String actualStock) {
+    public void setActualStock(double actualStock) {
         this.actualStock = actualStock;
     }
 
-    public String getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(String totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
 }
+

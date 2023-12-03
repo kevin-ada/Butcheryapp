@@ -16,13 +16,16 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class additemActivity extends AppCompatActivity {
 
     ActivityAdditemBinding binding;
 
-    String Date, TotalStock, WasteStock, actualStock, totalPrice;
+    String Date;
+    double TotalStock;
+    double WasteStock;
+    double actualStock;
+    double totalPrice;
 
     DatabaseReference reference;
 
@@ -51,13 +54,16 @@ public class additemActivity extends AppCompatActivity {
         binding.addStockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TotalStock = binding.TotalStock.getText().toString();
-                WasteStock = binding.wastestock.getText().toString();
-                actualStock = binding.actualStock.getText().toString();
-                totalPrice = binding.price.getText().toString();
+                TotalStock = Double.parseDouble(binding.TotalStock.getText().toString());
+                WasteStock = Double.parseDouble(binding.wastestock.getText().toString());
+                actualStock = Double.parseDouble(binding.actualStock.getText().toString());
+                totalPrice = Double.parseDouble(binding.price.getText().toString());
                 Date = formattedDate;
 
-                if (!TotalStock.isEmpty() && !WasteStock.isEmpty() && !actualStock.isEmpty()) {
+                actualStock = TotalStock - WasteStock;
+                totalPrice = actualStock * Double.parseDouble(binding.price.getText().toString());
+
+                if (TotalStock > 0.0 && WasteStock > 0.0 && actualStock > 0.0 && totalPrice > 0.0 ) {
                     Stock stock = new Stock(Date, TotalStock, WasteStock, actualStock, totalPrice);
 
 
