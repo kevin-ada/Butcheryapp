@@ -29,6 +29,8 @@ public class additem extends AppCompatActivity {
     double totalWaste;
     double actualStock;
 
+    double buying;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,7 @@ public class additem extends AppCompatActivity {
             public void onClick(View v) {
                 /// Getting the values from the fields
                 price = Double.parseDouble(binding.priceentry.getText().toString());
+                buying = Double.parseDouble(binding.purchaseentry.getText().toString());
                 totalStock = Double.parseDouble(binding.totalStock.getText().toString());
                 date = binding.dateentry.getText().toString();
                 totalWaste = Double.parseDouble(binding.totalwaste.getText().toString());
