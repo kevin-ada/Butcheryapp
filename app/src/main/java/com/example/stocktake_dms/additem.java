@@ -36,7 +36,7 @@ public class additem extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault());
         String currentDate = dateFormat.format(calendar.getTime());
         binding.dateentry.setText(currentDate);
 
