@@ -6,6 +6,7 @@ public class Stock {
     String date;
     double totalWaste;
 
+
     double actualStock;
 
     public Stock() {

@@ -37,11 +37,13 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         Stock stock = list.get(position);
+
+        double totalPrice = stock.getActualStock() * stock.getPrice();
         holder.date.setText(stock.getDate());
         holder.totalStock.setText(String.valueOf(stock.getTotalStock()));
         holder.totalWaste.setText(String.valueOf(stock.getTotalWaste()));
         holder.actualStock.setText(String.valueOf(stock.getActualStock()));
-        holder.price.setText(String.valueOf(stock.getPrice()));
+        holder.totalprice.setText(String.valueOf(stock.getPrice()));
 
 
     }
@@ -52,14 +54,14 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.MyViewHolder> {
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView date, price, totalStock, totalWaste, actualStock;
+        TextView date, totalprice, totalStock, totalWaste, actualStock;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             date = itemView.findViewById(R.id.date);
             totalStock = itemView.findViewById(R.id.totstock);
             totalWaste = itemView.findViewById(R.id.stockwasted);
             actualStock = itemView.findViewById(R.id.actualstock);
-            price = itemView.findViewById(R.id.ttprice);
+            totalprice = itemView.findViewById(R.id.ttprice);
         }
     }
 }
