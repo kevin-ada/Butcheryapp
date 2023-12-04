@@ -53,21 +53,21 @@ public class dashboadActivity extends AppCompatActivity {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // GO to the add Item
-                startActivity(new Intent(dashboadActivity.this, additemActivity.class));
-
+                Intent intent = new Intent(dashboadActivity.this, additem.class);
+                startActivity(intent);
             }
         });
 
-        cardView2.setOnClickListener(new View.OnClickListener(){
+        /// Setting an onClickListener for the CardView2 (View Inventory)
 
+        cardView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                startActivity(new Intent(dashboadActivity.this, stocklist.class));
-
+                Intent intent = new Intent(dashboadActivity.this, stocklistview.class);
+                startActivity(intent);
             }
         });
+
 
 
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundgradient"
+    android:background="@drawable/bg"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,102 +15,78 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="116dp"
-            android:text="Add Stock Items"
+            android:layout_marginTop="144dp"
+            android:text="Add Items Activity"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.432"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/date"
+            android:id="@+id/dateentry"
             android:layout_width="360dp"
             android:layout_height="50dp"
-            android:textColor="@color/black"
-            android:layout_marginTop="150dp"
-            android:hint="Date"
+            android:layout_marginTop="72dp"
+            android:hint="Add Date"
             android:paddingLeft="20dp"
-            android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-
-
-
-
         <EditText
-            android:id="@+id/TotalStock"
+            android:id="@+id/totalStock"
             android:layout_width="360dp"
             android:layout_height="50dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="36dp"
             android:hint="Total Stock"
-            android:textColor="@color/black"
             android:paddingLeft="20dp"
-            android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/date" />
+            app:layout_constraintTop_toBottomOf="@+id/dateentry" />
 
         <EditText
-            android:id="@+id/wastestock"
+            android:id="@+id/totalwaste"
             android:layout_width="360dp"
             android:layout_height="50dp"
-            android:inputType="numberDecimal"
-            android:layout_marginTop="32dp"
-            android:hint="Waste Stock"
-            android:textColor="@color/black"
+            android:layout_marginTop="40dp"
+            android:hint="Total Waste"
             android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.313"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TotalStock" />
-
-        <TextView
-            android:id="@+id/actualStock"
-            android:layout_width="360dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:hint="Actual Stock"
-            android:inputType="numberDecimal"
-            android:textColor="@color/black"
-            android:paddingLeft="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wastestock" />
+            app:layout_constraintTop_toBottomOf="@+id/totalStock" />
 
         <EditText
-            android:id="@+id/price"
+            android:id="@+id/priceentry"
             android:layout_width="360dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
-            android:hint="Price Per Kg"
-            android:textColor="@color/black"
+            android:hint="Price"
             android:paddingLeft="20dp"
-            android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/actualStock" />
+            app:layout_constraintTop_toBottomOf="@+id/totalwaste" />
 
         <Button
-            android:id="@+id/addStockBtn"
+            android:id="@+id/registerBtn"
             android:layout_width="360dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="732dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="Add Stock"
+            android:layout_marginTop="632dp"
+            android:backgroundTint="@color/cardview_dark_background"
+            android:text="ADD ITEMS"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.686"
+            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 </ScrollView>

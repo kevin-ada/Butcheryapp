@@ -9,65 +9,57 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+
+
 import java.util.ArrayList;
 
-public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder> {
+public class myAdapter extends RecyclerView.Adapter<myAdapter.MyViewHolder> {
+
 
     Context context;
 
-    ArrayList<Stock> stockArrayList;
-
-
-    public myAdapter(Context context, ArrayList<Stock> stockArrayList) {
+    public myAdapter(Context context, ArrayList<Stock> list) {
         this.context = context;
-        this.stockArrayList = stockArrayList;
+        this.list = list;
     }
 
+    ArrayList<Stock> list;
 
     @NonNull
     @Override
-    public myAdapter.myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.stockentry, parent, false);
-        return new myViewHolder(v);
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v  = LayoutInflater.from(context).inflate(R.layout.stockentry, parent, false);
+        return new MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull myAdapter.myViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        Stock stock = stockArrayList.get(position);
+        Stock stock = list.get(position);
         holder.date.setText(stock.getDate());
-        holder.wasteStock.setText(String.valueOf(stock.getWasteStock()));
+        holder.totalStock.setText(String.valueOf(stock.getTotalStock()));
+        holder.totalWaste.setText(String.valueOf(stock.getTotalWaste()));
         holder.actualStock.setText(String.valueOf(stock.getActualStock()));
-        holder.totalPrice.setText(String.valueOf(stock.getTotalPrice()));
+        holder.price.setText(String.valueOf(stock.getPrice()));
+
 
     }
 
     @Override
     public int getItemCount() {
-        return stockArrayList.size();
+        return list.size();
     }
 
-    public static class myViewHolder extends RecyclerView.ViewHolder{
-
-        TextView date, category, wasteStock, actualStock, totalPrice;
-
-        public myViewHolder(@NonNull View itemView) {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView date, price, totalStock, totalWaste, actualStock;
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
             date = itemView.findViewById(R.id.date);
-            category = itemView.findViewById(R.id.category);
-            wasteStock = itemView.findViewById(R.id.wastestock);
-            actualStock = itemView.findViewById(R.id.actualStock);
-
-
-
+            totalStock = itemView.findViewById(R.id.totstock);
+            totalWaste = itemView.findViewById(R.id.stockwasted);
+            actualStock = itemView.findViewById(R.id.actualstock);
+            price = itemView.findViewById(R.id.ttprice);
         }
-
-
-
-
-
     }
-
-
 }

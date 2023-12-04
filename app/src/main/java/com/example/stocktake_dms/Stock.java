@@ -1,46 +1,54 @@
 package com.example.stocktake_dms;
 
 public class Stock {
+    double price;
+    double totalStock;
+    String date;
+    double totalWaste;
 
-    String Date;
-    double Category;
-    double WasteStock;
     double actualStock;
-    double totalPrice;
 
     public Stock() {
     }
 
-    public Stock(String date, double category, double wasteStock, double actualStock, double totalPrice) {
-        Date = date;
-        Category = category;
-        WasteStock = wasteStock;
-        this.actualStock = actualStock;
-        this.totalPrice = totalPrice;
+    public Stock(double price, double totalStock, String date, double totalWaste, double actualStock) {
+        this.price = price;
+        this.totalStock = totalStock;
+        this.date = date;
+        this.totalWaste = totalWaste;
+        this.actualStock = totalStock - totalWaste;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getTotalStock() {
+        return totalStock;
+    }
+
+    public void setTotalStock(double totalStock) {
+        this.totalStock = totalStock;
     }
 
     public String getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(String date) {
-        Date = date;
+        this.date = date;
     }
 
-    public double getCategory() {
-        return Category;
+    public double getTotalWaste() {
+        return totalWaste;
     }
 
-    public void setCategory(double category) {
-        Category = category;
-    }
-
-    public double getWasteStock() {
-        return WasteStock;
-    }
-
-    public void setWasteStock(double wasteStock) {
-        WasteStock = wasteStock;
+    public void setTotalWaste(double totalWaste) {
+        this.totalWaste = totalWaste;
     }
 
     public double getActualStock() {
@@ -50,14 +58,4 @@ public class Stock {
     public void setActualStock(double actualStock) {
         this.actualStock = actualStock;
     }
-
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
 }
-
