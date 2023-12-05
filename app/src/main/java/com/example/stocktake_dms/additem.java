@@ -56,7 +56,7 @@ public class additem extends AppCompatActivity {
                 // Calculating the total price
                 price = actualStock * price;
 
-                /// Checking if the fields are empty
+                /// validating the fields are empty
                 if (!date.isEmpty() && !binding.priceentry.getText().toString().isEmpty() &&
                         !binding.totalStock.getText().toString().isEmpty() &&
                         !binding.totalwaste.getText().toString().isEmpty()) {
