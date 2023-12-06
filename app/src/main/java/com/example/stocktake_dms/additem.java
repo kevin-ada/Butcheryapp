@@ -23,13 +23,13 @@ public class additem extends AppCompatActivity {
     FirebaseDatabase db;
     DatabaseReference reference;
 
-    double price;
+    double totalsellingprice;
     double totalStock;
     String date;
     double totalWaste;
     double actualStock;
 
-    double buying;
+    double buyingprice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,22 +46,22 @@ public class additem extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 /// Getting the values from the fields
-                price = Double.parseDouble(binding.priceentry.getText().toString());
-                buying = Double.parseDouble(binding.purchaseentry.getText().toString());
+                totalsellingprice = Double.parseDouble(binding.priceentry.getText().toString());
+                buyingprice = Double.parseDouble(binding.buyingprice.getText().toString());
                 totalStock = Double.parseDouble(binding.totalStock.getText().toString());
                 date = binding.dateentry.getText().toString();
                 totalWaste = Double.parseDouble(binding.totalwaste.getText().toString());
                 /// Calculating the actual stock
                 actualStock = totalStock - totalWaste;
                 // Calculating the total price
-                price = actualStock * price;
+                totalsellingprice = actualStock * totalsellingprice;
 
                 /// validating the fields are empty
                 if (!date.isEmpty() && !binding.priceentry.getText().toString().isEmpty() &&
                         !binding.totalStock.getText().toString().isEmpty() &&
                         !binding.totalwaste.getText().toString().isEmpty()) {
                     /// Creating a new stock object
-                    Stock stock = new Stock(price, totalStock, date, totalWaste, actualStock);
+                    Stock stock = new Stock(totalsellingprice, totalStock, date, totalWaste, actualStock, buyingprice);
 
                     /// Adding the stock object to the database
                     db = FirebaseDatabase.getInstance();
