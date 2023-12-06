@@ -38,10 +38,8 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.MyViewHolder> {
 
         Stock stock = list.get(position);
 
-        double sellingPrice = stock.getActualStock() * stock.getPrice();
-        double buyingPrice = stock.getBuyingPrice();
-        double profitOrLoss = sellingPrice - buyingPrice;
 
+//
 //        double totalPrice = stock.getActualStock() * stock.getPrice();
         holder.date.setText(stock.getDate());
         holder.totalStock.setText(String.valueOf(stock.getTotalStock()));
@@ -50,15 +48,18 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.MyViewHolder> {
         holder.totalprice.setText(String.valueOf(stock.getPrice()));
         holder.buying_price.setText(String.valueOf(stock.getBuyingPrice()));
 
+       double sellingPrice = stock.getPrice();
+        double buyingPrice = stock.getBuyingPrice();
+        double profitOrLoss = sellingPrice - buyingPrice;
+
         // Using an if statement to check if the total price is greater than the buying price return a profit else return a loss status
 
-
         if (sellingPrice > buyingPrice) {
-            holder.profitorlossstatus.setText("True");
-            holder.salesstatusvalue.setText(String.valueOf(profitOrLoss));
+            holder.profitorlossstatus.setText("Profit");
+            holder.salesstatusvalue.setText(String.format("%.2f", profitOrLoss));
         } else {
-            holder.profitorlossstatus.setText("False");
-            holder.salesstatusvalue.setText(profitOrLoss < 0 ? "-" + String.valueOf(Math.abs(profitOrLoss)) : String.valueOf(profitOrLoss));
+            holder.profitorlossstatus.setText("Loss");
+            holder.salesstatusvalue.setText(profitOrLoss < 0 ? "-" + String.format("%.2f", Math.abs(profitOrLoss)) : String.format("%.2f", profitOrLoss));
         }
 
     }

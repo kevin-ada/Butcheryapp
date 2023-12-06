@@ -23,7 +23,7 @@ public class additem extends AppCompatActivity {
     FirebaseDatabase db;
     DatabaseReference reference;
 
-    double totalsellingprice;
+    double totalsellperkg;
     double totalStock;
     String date;
     double totalWaste;
@@ -46,7 +46,7 @@ public class additem extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 /// Getting the values from the fields
-                totalsellingprice = Double.parseDouble(binding.priceentry.getText().toString());
+                totalsellperkg = Double.parseDouble(binding.priceentry.getText().toString());
                 buyingprice = Double.parseDouble(binding.buyingprice.getText().toString());
                 totalStock = Double.parseDouble(binding.totalStock.getText().toString());
                 date = binding.dateentry.getText().toString();
@@ -54,14 +54,14 @@ public class additem extends AppCompatActivity {
                 /// Calculating the actual stock
                 actualStock = totalStock - totalWaste;
                 // Calculating the total price
-                totalsellingprice = actualStock * totalsellingprice;
+                totalsellperkg = actualStock *  Double.parseDouble(binding.priceentry.getText().toString());
 
                 /// validating the fields are empty
                 if (!date.isEmpty() && !binding.priceentry.getText().toString().isEmpty() &&
                         !binding.totalStock.getText().toString().isEmpty() &&
                         !binding.totalwaste.getText().toString().isEmpty()) {
                     /// Creating a new stock object
-                    Stock stock = new Stock(totalsellingprice, totalStock, date, totalWaste, actualStock, buyingprice);
+                    Stock stock = new Stock(totalsellperkg, totalStock, date, totalWaste, actualStock, buyingprice);
 
                     /// Adding the stock object to the database
                     db = FirebaseDatabase.getInstance();
