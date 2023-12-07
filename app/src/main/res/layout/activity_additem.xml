@@ -16,13 +16,13 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="144dp"
-            android:text="Add Items Activity"
+            android:layout_marginTop="76dp"
+            android:text="Add Stock"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.432"
+            app:layout_constraintHorizontal_bias="0.433"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,20 +30,20 @@
             android:id="@+id/dateentry"
             android:layout_width="360dp"
             android:layout_height="50dp"
-            android:layout_marginTop="72dp"
+            android:layout_marginTop="40dp"
             android:paddingLeft="20dp"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintHorizontal_bias="0.313"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <EditText
-            android:id="@+id/totalStock"
+            android:id="@+id/openStock"
             android:layout_width="360dp"
             android:layout_height="50dp"
             android:layout_marginTop="36dp"
-            android:hint="Total Stock"
+            android:hint="Opening Stock"
             android:paddingLeft="20dp"
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,17 +52,17 @@
             app:layout_constraintTop_toBottomOf="@+id/dateentry" />
 
         <EditText
-            android:id="@+id/totalwaste"
+            android:id="@+id/closingStock"
             android:layout_width="360dp"
             android:layout_height="50dp"
             android:layout_marginTop="44dp"
-            android:hint="Total Waste"
+            android:hint="Closing Stock"
             android:paddingLeft="20dp"
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/totalStock" />
+            app:layout_constraintTop_toBottomOf="@+id/openStock" />
 
         <EditText
             android:id="@+id/priceentry"
@@ -75,14 +75,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/totalwaste" />
+            app:layout_constraintTop_toBottomOf="@+id/closingStock" />
 
 
         <EditText
             android:id="@+id/buyingprice"
             android:layout_width="360dp"
             android:layout_height="50dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="40dp"
             android:hint="Buying Price per kg"
             android:paddingLeft="20dp"
             android:textColorHint="@color/black"
@@ -91,12 +91,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/priceentry" />
 
+        <EditText
+            android:id="@+id/waste"
+            android:layout_width="360dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="216dp"
+            android:hint=" Waste"
+            android:paddingLeft="20dp"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/closingStock" />
+
+        <EditText
+            android:id="@+id/expense"
+            android:layout_width="360dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:hint="Expenses"
+            android:paddingLeft="20dp"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/waste" />
+
         <Button
             android:id="@+id/registerBtn"
             android:layout_width="360dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="716dp"
+            android:layout_marginTop="772dp"
             android:backgroundTint="@color/cardview_dark_background"
             android:text="ADD ITEMS"
             app:layout_constraintEnd_toEndOf="parent"
