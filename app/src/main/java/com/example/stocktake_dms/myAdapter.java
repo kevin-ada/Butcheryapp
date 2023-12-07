@@ -40,16 +40,18 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.MyViewHolder> {
 
 
 //
-//        double totalPrice = stock.getActualStock() * stock.getPrice();
+        double totalPrice = stock.getActualStock() * stock.getPrice();
+        double totalBuyingPrice = stock.getBuyingPrice() * stock.getTotalStock();
         holder.date.setText(stock.getDate());
         holder.totalStock.setText(String.valueOf(stock.getTotalStock()));
         holder.totalWaste.setText(String.valueOf(stock.getTotalWaste()));
         holder.actualStock.setText(String.valueOf(stock.getActualStock()));
-        holder.totalprice.setText(String.valueOf(stock.getPrice()));
-        holder.buying_price.setText(String.valueOf(stock.getBuyingPrice()));
+        holder.totalprice.setText(String.format("%.2f", totalPrice));
+        holder.buying_price.setText(String.format("%.2f", totalBuyingPrice));
 
-       double sellingPrice = stock.getPrice();
-        double buyingPrice = stock.getBuyingPrice();
+
+       double sellingPrice = totalPrice;
+        double buyingPrice = stock.getBuyingPrice() * stock.getTotalStock();
         double profitOrLoss = sellingPrice - buyingPrice;
 
         // Using an if statement to check if the total price is greater than the buying price return a profit else return a loss status
