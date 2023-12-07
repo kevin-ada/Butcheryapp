@@ -45,7 +45,7 @@ public class dashboadActivity extends AppCompatActivity {
         // Finding the CardView for the "Add New Item" button
         View cardView = findViewById(R.id.addItems);
         View cardView2 = findViewById(R.id.viewInventory);
-        View cardView3 = findViewById(R.id.deleteItems);
+        View cardView3 = findViewById(R.id.expense);
         View cardView4 = findViewById(R.id.updateItems);
 
         // Setting an onClickListener for the CardView
@@ -64,6 +64,16 @@ public class dashboadActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(dashboadActivity.this, stocklistview.class);
+                startActivity(intent);
+            }
+        });
+
+
+        cardView3.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(dashboadActivity.this, expense.class);
                 startActivity(intent);
             }
         });
