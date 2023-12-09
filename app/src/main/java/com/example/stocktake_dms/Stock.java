@@ -2,7 +2,11 @@ package com.example.stocktake_dms;
 
 public class Stock {
     double price;
-    double totalStock;
+    double openingStock;
+
+    double expenses;
+
+    double closingStock;
     String date;
     double totalWaste;
 
@@ -13,13 +17,31 @@ public class Stock {
     public Stock() {
     }
 
-    public Stock(double price, double totalStock, String date, double totalWaste, double actualStock, double buyingPrice) {
+    public Stock(double price, double openingStock, String date, double totalWaste, double actualStock, double buyingPrice, double closingStock, double expenses) {
         this.price = price;
-        this.totalStock = totalStock;
+        this.openingStock = openingStock;
         this.date = date;
         this.totalWaste = totalWaste;
-        this.actualStock = totalStock - totalWaste;
+        this.actualStock = openingStock - closingStock - totalWaste;
         this.buyingPrice = buyingPrice;
+        this.closingStock = closingStock;
+        this.expenses = expenses;
+    }
+
+    public double getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(double expenses) {
+        this.expenses = expenses;
+    }
+
+    public double getClosingStock() {
+        return closingStock;
+    }
+
+    public void setClosingStock(double closingStock) {
+        this.closingStock = closingStock;
     }
 
     public double getBuyingPrice() {
@@ -39,12 +61,12 @@ public class Stock {
         this.price = price;
     }
 
-    public double getTotalStock() {
-        return totalStock;
+    public double getOpeningStock() {
+        return openingStock;
     }
 
-    public void setTotalStock(double totalStock) {
-        this.totalStock = totalStock;
+    public void setOpeningStock(double openingStock) {
+        this.openingStock = openingStock;
     }
 
     public String getDate() {

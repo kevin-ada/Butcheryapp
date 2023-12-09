@@ -24,10 +24,14 @@ public class additem extends AppCompatActivity {
     DatabaseReference reference;
 
     double salesperkg;
-    double totalStock;
+    double openingStock;
     String date;
     double totalWaste;
     double actualStock;
+
+    double closingStock;
+
+    double expenses;
 
     double sales;
 
@@ -52,20 +56,26 @@ public class additem extends AppCompatActivity {
                 /// Getting the values from the fields
                 salesperkg = Double.parseDouble(binding.priceentry.getText().toString());
                 buyingpriceperkg = Double.parseDouble(binding.buyingprice.getText().toString());
-                totalStock = Double.parseDouble(binding.totalStock.getText().toString());
+                openingStock = Double.parseDouble(binding.openStock.getText().toString());
+                closingStock = Double.parseDouble(binding.closingStock.getText().toString());
+                expenses = Double.parseDouble(binding.expense.getText().toString());
                 date = binding.dateentry.getText().toString();
-                totalWaste = Double.parseDouble(binding.totalwaste.getText().toString());
+                totalWaste = Double.parseDouble(binding.waste.getText().toString());
                 /// Calculating the actual stock
-                actualStock = totalStock - totalWaste;
+                actualStock = openingStock - closingStock - totalWaste;
                 // Calculating the total price
                 sales = actualStock *  Double.parseDouble(binding.priceentry.getText().toString());
 
                 /// validating the fields are empty
                 if (!date.isEmpty() && !binding.priceentry.getText().toString().isEmpty() &&
-                        !binding.totalStock.getText().toString().isEmpty() &&
-                        !binding.totalwaste.getText().toString().isEmpty()) {
+                        !binding.openStock.getText().toString().isEmpty() &&
+                        !binding.closingStock.getText().toString().isEmpty() &&
+                        !binding.expense.getText().toString().isEmpty() &&
+                        !binding.buyingprice.getText().toString().isEmpty() &&
+                        !binding.waste.getText().toString().isEmpty()
+                ) {
                     /// Creating a new stock object
-                    Stock stock = new Stock(salesperkg, totalStock, date, totalWaste, actualStock, buyingpriceperkg);
+                    Stock stock = new Stock(salesperkg, openingStock, date, totalWaste, actualStock, buyingpriceperkg, closingStock, expenses);
 
                     /// Adding the stock object to the database
                     db = FirebaseDatabase.getInstance();
@@ -80,9 +90,12 @@ public class additem extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             /// Clearing the fields after the data has been added
                             binding.priceentry.setText("");
-                            binding.totalStock.setText("");
+                            binding.openStock.setText("");
                             binding.dateentry.setText("");
-                            binding.totalwaste.setText("");
+                            binding.waste.setText("");
+                            binding.closingStock.setText("");
+                            binding.expense.setText("");
+                            binding.buyingprice.setText("");
                             Toast.makeText(additem.this, "Stock has been added Successfully", Toast.LENGTH_SHORT).show();
 
                         }
@@ -92,9 +105,12 @@ public class additem extends AppCompatActivity {
                 else{
                     /// Setting the necessary error messages
                     binding.priceentry.setError("Please enter the price");
-                    binding.totalStock.setError("Please enter the total stock");
+                    binding.openStock.setError("Please enter the total stock");
                     binding.dateentry.setError("Please enter the date");
-                    binding.totalwaste.setError("Please enter the total waste");
+                    binding.waste.setError("Please enter the total waste");
+                    binding.closingStock.setError("Please enter the closing stock");
+                    binding.expense.setError("Please enter the expenses");
+                    binding.buyingprice.setError("Please enter the buying price");
                     Toast.makeText(additem.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
                 }
 
